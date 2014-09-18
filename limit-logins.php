@@ -2,7 +2,7 @@
 /*
 Plugin Name: Limit Logins
 Description: Prevent multiple users from sharing the same account. Using Heartbeat API to kick out old logins.
-Version: 2.2
+Version: 2.2.1
 Plugin URI: https://github.com/jr00ck/limit-logins
 Author: Web Guys
 Author URI: http://webguysaz.com
@@ -23,7 +23,7 @@ Contributors: jr00ck
 
 const VERSION = '2.1';
 
-functionllset_user_logged_in_status( $logged_in_cookie, $expire, $expiration, $user_id, $status = 'logged_in' ) {
+function llset_user_logged_in_status( $logged_in_cookie, $expire, $expiration, $user_id, $status = 'logged_in' ) {
 
 	if ( ! empty( $user_id ) ) :
 
