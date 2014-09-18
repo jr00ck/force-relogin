@@ -2,7 +2,7 @@
 /*
 Plugin Name: WG Limit Logins
 Description: Prevent multiple users from sharing the same account. Using Heartbeat API to kick out old logins.
-Version: 2.0
+Version: 2.1
 Author: Web Guys
 Author URI: http://webguysaz.com
 Contributors: jr00ck
@@ -20,7 +20,7 @@ Contributors: jr00ck
  * @return      void
 */
 
-const VERSION = '2.0';
+const VERSION = '2.1';
 
 function wg_set_user_logged_in_status( $logged_in_cookie, $expire, $expiration, $user_id, $status = 'logged_in' ) {
 
@@ -107,7 +107,7 @@ function wg_heartbeat_enqueue( $hook_suffix ) {
 	);
 
     $jQueryUIver = '1.10.1';
-    wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/'.$jQueryUIver.'/themes/smoothness/jquery-ui.min.css', false, $jQueryUIver);
+    wp_enqueue_style('jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/'.$jQueryUIver.'/themes/smoothness/jquery-ui.min.css', false, $jQueryUIver);
 }
 add_action( 'wp_enqueue_scripts', 'wg_heartbeat_enqueue' );
 
