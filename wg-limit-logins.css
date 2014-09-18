@@ -1,0 +1,7 @@
+#wg-dialog-message { display: none; }
+#wg-dialog-message i { padding-top: 15px; color: red; }
+#wg-timer-redirect { border: 1px solid #efe3ae; background-color: #fef6d2; padding: 2px 5px; margin-top: 10px; text-align: center; border-radius: 5px; }
+
+.noclose .ui-dialog-titlebar-close { display:none; }
+.ui-widget-overlay { background: #000 !important; opacity: .5 !important; filter: alpha(opacity=50) !important; }
+.ui-front { z-index: 1000 !important; }
