@@ -3,6 +3,7 @@
 Plugin Name: Limit Logins
 Description: Prevent multiple users from sharing the same account. Using Heartbeat API to kick out old logins.
 Version: 2.2
+Plugin URI: https://github.com/jr00ck/limit-logins
 Author: Web Guys
 Author URI: http://webguysaz.com
 Contributors: jr00ck
