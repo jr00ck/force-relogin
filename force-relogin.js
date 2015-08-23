@@ -1,23 +1,45 @@
 (function($){
 
-    // Hook into the heartbeat-send
-    $(document).on('heartbeat-send', function(e, data) {
-        data['ll_heartbeat'] = 'stay_logged_in';
-    });
+"use strict";
 
-    // Listen for the custom event "heartbeat-tick" on $(document).
-    $(document).on( 'heartbeat-tick', function(e, data) {
+    $(function() {
+        console.log('here');
 
-        // Check if response says user is still logged in
-        if ( data['wp-auth-check'] === false ) {
-
+        // try something else besides heartbeat, use our own interval
+        var counter = setInterval(function(){
+            
+            // if logged in on last check, check again
             if(LL.logged_in == true){
-            	
-            	LL.logged_in = false;
-            	showDialog();
-        	}
-        }
+                check_logged_in_status();
+            } else { // not logged in, don't need to check
+                clearInterval(counter);
+            }
+        }, 300000); // runs every 5 minutes
     });
+
+    function check_logged_in_status(){
+
+        // use ajax to check logged in status
+        console.log('gonna run some ajax');
+        $.get(
+            LL.ajaxurl,
+            {
+                // trigger LL_state on backend
+                action : 'LL_state'
+            }
+        ).done(function(data){
+
+            // check if response says user is no longer logged in
+            if(!data.user_logged_in){
+
+                console.log(data);
+                LL.logged_in = false;
+                showDialog();
+            }
+        });
+
+
+    }
 
     function showDialog(){
     	var count = 30; // logout timer count
