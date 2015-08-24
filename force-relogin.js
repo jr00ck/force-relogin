@@ -3,7 +3,6 @@
 "use strict";
 
     $(function() {
-        console.log('here');
 
         // try something else besides heartbeat, use our own interval
         var counter = setInterval(function(){
