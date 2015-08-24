@@ -19,7 +19,6 @@
     function check_logged_in_status(){
 
         // use ajax to check logged in status
-        console.log('gonna run some ajax');
         $.get(
             LL.ajaxurl,
             {
@@ -31,8 +30,9 @@
             // check if response says user is no longer logged in
             if(!data.user_logged_in){
 
-                console.log(data);
+                // set logged in value to false
                 LL.logged_in = false;
+                // show the logout dialog
                 showDialog();
             }
         });
